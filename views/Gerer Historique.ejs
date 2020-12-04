@@ -1,0 +1,52 @@
+
+<%- include('parts/header')%> 
+<div id="layoutSidenav_content">
+    <main>
+<div class="container-fluid">
+                        <h3 class="mt-4">Gérer l'historique des Utilisateurs</h3>
+                        
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                Gsstion horaire
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>id_carte</th>
+                                                <th>Nom</th>
+                                                <th>Date D'entré</th>
+                                                <th>Date de sortie</th>
+                                                 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% for(var i=0; i<users.length;i++) { %>
+                                                <tr>
+                                                    <td><%= i+1 %></td>
+                                                    <td><%= users[i].idcart %></td>
+                                                    <td><%= users[i].nom %></td>
+                                                    <td><%= users[i].dateEntre %></td>
+                                                    <td><%= users[i].dateSortie %></td>
+                                                    
+                                                  
+ 
+                                                </tr>
+                                            <% } %> 
+                                            
+                                        </tbody>
+
+                                        
+                                      
+
+                                    </table>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<%- include('parts/footer')%> 

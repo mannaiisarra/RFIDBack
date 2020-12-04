@@ -1,0 +1,71 @@
+
+<%- include('parts/header')%> 
+<div id="layoutSidenav_content">
+    <main>
+<div class="container-fluid">
+                        <h3 class="mt-4">Gestion Utilisateurs</h3>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Gérer les Utilisateurs</li>
+                        </ol>
+                      
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                Gérer les Utilisateurs
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>id_carte</th>
+                                                <th>Nom</th>
+                                                <th>Prenom</th>
+                                                <th>Email</th>
+                                                <th>Adresse</th>
+                                                <th>telephone</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        
+                                        <tbody>
+                                            <% for(var i=0; i<users.length;i++) { %>
+                                                <tr>
+                                                    <td><%= i+1 %></td>
+                                                    <td><%= users[i].idcart %></td>
+                                                    <td><%= users[i].nom %></td>
+                                                    <td><%= users[i].prenom %></td>
+                                                    <td><%= users[i].email %></td>
+                                                    <td><%= users[i].adresse %></td>
+                                                    <td><%= users[i].telephone %></td>
+                                                    
+                                                    <td>
+                                                        <form action="/edit/<%= users[i]._id %>">
+                                                            <button type="submit" class="btn btn-success">Update</button>  
+                                                         </form>
+                                                    </td> 
+                                                    <td>
+                                                        <form action="/delete/<%= users[i]._id %>">
+                                                            <button type="submit" class="btn btn-danger">DELETE</button>  
+                                                         </form>
+                                                    </td>
+ 
+                                                </tr>
+                                            <% } %> 
+                                            
+                                        </tbody>
+
+                                    </table>
+                                    <form action="/aj">
+                                        <div class="row justify-content-center">
+                                        <button type="submit" class="btn btn-primary btn-lg active">Add Employée</button>
+                                        </div>
+                                     </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<%- include('parts/footer')%> 
