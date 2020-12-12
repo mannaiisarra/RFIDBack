@@ -212,10 +212,12 @@ router.get('/affichaHistorique',function(req,res){
               console.log(err);
             else
               console.log('Success');
-            res.send({ "Success": "Password changed!" });
+            res.render('forget', { message: 'Password changed!'});
+            //res.render('login', { message: 'Password changed!'});
+
           });
         } else {
-          res.send({ "Success": "Password does not matched! Both Password should be same." });
+          res.render('forget', { errorMsg : 'Password does not matched! Both Password should be same.' });
         }
       }
     });
