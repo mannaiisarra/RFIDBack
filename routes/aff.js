@@ -184,12 +184,8 @@ router.get('/affichaHistorique',function(req,res){
    
    });
    */
-  router.get('/registre', function(req, res, next) {
-    
-     res.render('Register.ejs');
-    //res.redirect('/');
-    
-  });
+ 
+  
 
   router.get('/forgetpass', (req, res, next) => {
     res.render("forget.ejs");
@@ -223,8 +219,12 @@ router.get('/affichaHistorique',function(req,res){
     });
   
   });
+  
+  router.get('/registre',function(req,res){
+    res.render("registerr.ejs")
+  });
 
-  router.post('/registre', (req, res, next) => {
+  router.post('/regis', (req, res, next) => {
     console.log(req.body);
     var personInfo = req.body;
   
@@ -246,7 +246,7 @@ router.get('/affichaHistorique',function(req,res){
                 c = 1;
               }
   
-              var newPerson = new User({
+              var newPerson = new teacherModel({
                 unique_id: c,
                 email: personInfo.email,
                 username: personInfo.username,
@@ -262,14 +262,20 @@ router.get('/affichaHistorique',function(req,res){
               });
   
             }).sort({ _id: -1 }).limit(1);
-            res.send({ "Success": "You are regestered,You can login now." });
+            //res.send({ "Success": "You are regestered,You can login now." });
+            res.render('registerr', { message: 'You are regestered,You can login now.'});
+
           } else {
-            res.send({ "Success": "Email is already used." });
+           // res.send({ "Success": "Email is already used." });
+            res.render('registerr', { errorMsg: 'Email is already used'});
+
           }
   
         });
       } else {
-        res.send({ "Success": "password is not matched" });
+        res.render('registerr', { errorMsg: 'password is not matched'});
+
+        //res.send({ "Success": "password is not matched" });
       }
     }
   });

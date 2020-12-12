@@ -1,0 +1,47 @@
+<%- include('parts/header'); -%> 
+<div id="layoutSidenav_content">
+    <main>
+     <div class="container-fluid">
+        <div class="col-md-12">
+         
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <br> <br>
+                <% if (typeof message != 'undefined' && message) { %>
+                    <div class="alert alert-success"><%- message %></div>
+                    <% } else if(typeof errorMsg  != 'undefined' && errorMsg ) { %>
+                            <div class="alert alert-danger"><%- errorMsg  %></div>
+                            <% } %>
+              <div class="card-header"><h3 class="text-center font-weight-light ">Register Now</h3></div>
+             
+              <form action="/regis" method="post">
+
+              
+                   
+                  
+                
+               
+                
+                <div class="form-group">
+                    <form action="/regis" method="post">
+                        <input type="email" name="email" placeholder="E-mail" required="" class="form-control"><br/>
+                        <input type="text" name="username" placeholder="Username" required="" class="form-control"><br/>
+                        <input type="password" name="password" placeholder="Password" required="" class="form-control"><br/>
+                        <input type="password" name="passwordConf" placeholder="Confirm Password" required="" class="form-control"><br/>
+                        <input type="submit" value="Register" class="btn btn-success">
+                    </form>
+                
+                
+                
+                
+            </div>
+            </form>
+       </div> 
+    </div>
+       
+          
+                                  
+               
+      
+       
+        <%- include('parts/footer'); -%> 
