@@ -1,11 +1,20 @@
-<%- include('parts/header')%> 
+<%- include('parts/header'); -%> 
 <div id="layoutSidenav_content">
     <main>
      <div class="container-fluid">
+        <div class="col-md-12">
+           <br></br>
+            <% if (typeof message != 'undefined' && message) { %>
+                <div class="alert alert-success"><%- message %></div>
+                <% } else if(typeof errorMsg  != 'undefined' && errorMsg ) { %>
+                        <div class="alert alert-danger"><%- errorMsg  %></div>
+                        <% } %>
+           
         <div class="row justify-content-center">
             <div class="col-lg-7">
               
               <div class="card-header"><h3 class="text-center font-weight-light ">Ajouter Employées</h3></div>
+             
         <form action="/add" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">ID_Carte</label>
@@ -37,13 +46,8 @@
             
          
   
-            <button type="submit" class="btn btn-primary" onclick="geekPrompt();" value="Click here for Prompt box">Ajouter</button>
-            <script> 
-                function geekPrompt() { 
-                    alert("Ajouter Avec Succé" ); 
-            
-                } 
-            </script>
+            <button type="submit" class="btn btn-primary" >Ajouter</button>
+           
         </form>
        </div> 
     </div>
@@ -53,4 +57,4 @@
                
       
        
-        <%- include('parts/footer')%> 
+        <%- include('parts/footer'); -%> 

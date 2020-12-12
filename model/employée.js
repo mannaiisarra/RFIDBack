@@ -1,19 +1,23 @@
 
 var mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+//var Schema = mongoose.Schema;
 
 
-var myuser = new Schema({
-idcart:String,
-nom :String,
-prenom :String,
-email :String,
-adresse :String,
-telephone :String,
+const myuser = new mongoose.Schema({
+idcart : { type:Number , required:true ,trim:true ,min: [2, 'too small age']}, 
+nom :{ type:String , required:true ,trim:true ,min: [1, 'too small age'], max: 10},
+prenom :{ type:String , required:true ,trim:true ,min: [1, 'too small age'], max: 10},
+email :{ type:String , required:true ,trim:true ,min: [1, 'too small age'], max: 10},
+adresse :{ type:String , required:true ,trim:true ,min: [1, 'too small age'], max: 10},
+telephone :{ type:String , required:true ,trim:true ,min: [1, 'too small age'], max: 10},
+email: String,
+	username: String,
+	password: String,
 dateEntre:Number,
 dateSortie:Number
 
 });
+
 
 module.exports = mongoose.model('users', myuser);
