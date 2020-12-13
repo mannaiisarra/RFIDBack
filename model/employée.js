@@ -14,8 +14,8 @@ telephone :{ type:String , required:true ,trim:true ,min: [1, 'too small age'], 
 email: String,
 	username: String,
 	password: String,
-dateEntre:Number,
-dateSortie:Number
+dateEntre:  { type: Date },
+dateSortie: { type: Date }
 
 });
 
