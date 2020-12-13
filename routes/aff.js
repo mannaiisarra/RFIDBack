@@ -69,6 +69,7 @@ router.get('/gestionUtilisateur', function(req, res) {
     }
 }); 
 
+
 });
  /* GET SINGLE User BY ID */
 
@@ -81,6 +82,7 @@ router.get('/gestionUtilisateur', function(req, res) {
     }
   });
 });
+
 
 
 
