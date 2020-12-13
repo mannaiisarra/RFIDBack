@@ -158,10 +158,15 @@ router.get('/affichaHistorique',function(req,res){
 
 
 			} else {
-				res.send({ "Success": "Wrong password!" });
+        //res.send({ "Success": "Wrong password!" });
+        res.render('login', { errorMsg: 'Wrong password!'});
+
+        
 			}
 		} else {
-			res.send({ "Success": "This Email Is not regestered!" });
+      res.render('login', { errorMsg: 'This Email Is not regestered!'});
+
+		//	res.send({ "Success": "This Email Is not regestered!" });
 		}
 	});
 });
@@ -196,7 +201,9 @@ router.get('/affichaHistorique',function(req,res){
     teacherModel.findOne({ email: req.body.email }, (err, data) => {
       console.log(data);
       if (!data) {
-        res.send({ "Success": "This Email Is not regestered!" });
+        res.render('forget', { message: 'This Email Is not regestered'});
+
+        //res.send({ "Success": "This Email Is not regestered!" });
       } else {
         // res.send({"Success":"Success!"});
         if (req.body.password == req.body.passwordConf) {

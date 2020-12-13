@@ -15,6 +15,12 @@
             <div id="layoutAuthentication_content">
                 <main>
                     <div class="container">
+                        <br><br>
+                        <% if (typeof message != 'undefined' && message) { %>
+                            <div class="alert alert-success"><%- message %></div>
+                            <% } else if(typeof errorMsg  != 'undefined' && errorMsg ) { %>
+                                    <div class="alert alert-danger"><%- errorMsg  %></div>
+                                    <% } %>
                         <form id="form" method="post" >
                             <div class="row justify-content-center">
                             <div class="col-lg-5">
