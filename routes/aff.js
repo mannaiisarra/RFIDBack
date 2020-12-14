@@ -71,6 +71,7 @@ router.get('/gestionUtilisateur', function(req, res) {
 
 
 });
+
  /* GET SINGLE User BY ID */
 
  router.get('/edit/:id', function(req, res) {
@@ -86,33 +87,17 @@ router.get('/gestionUtilisateur', function(req, res) {
 
 
 
-
-
-
-router.post('/edit', function(req, res) {
-
-  console.log("Edit ID is"+ req.params.id);
-
-  const mybodydata = {
-    idcart: req.body.idcart,
-      nom: req.body.nom,
-      prenom: req.body.prenom,
-      email: req.body.email,
-      adresse: req.body.adresse,
-      telephone: req.body.telephone
+router.post('/edit/:id', function(req, res) {
+  UsersModel.findByIdAndUpdate(req.params.id, req.body, function (err) {
+    if(err){
+      //req.flash('error_msg', 'Something went wrong! User could not updated.');
+      res.redirect('/');
+  } else {
+   // req.flash('success_msg', 'Record Updated');
+    res.redirect('/gestionUtilisateur');
   }
-
-  UsersModel.findByIdAndUpdate(req.params.id, mybodydata, function(err) {
-      if (err) {
-          console.log("Error in Record Update");
-          res.redirect('UpdateForm');
-      } else {
-        
-          res.redirect('/');
-      }
   });
 });
-
   
 
 
@@ -141,6 +126,8 @@ router.get('/affichaHistorique',function(req,res){
     //res.redirect('/');
     
   });
+
+ 
   
 
 
